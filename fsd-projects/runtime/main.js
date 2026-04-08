@@ -446,7 +446,7 @@ function keyboardControlActions() {
 
   if (keyPress.space && currentAnimationType !== animationTypes.lazer) {
     currentAnimationType = animationTypes.lazer;
-    frameIndex = 11; // start partway through for more rapid shooting
+    frameIndex = 19; // start partway through for more rapid shooting
     player.speedY = 0; // stop vertical movement when shooting
     createProjectile();
   }
