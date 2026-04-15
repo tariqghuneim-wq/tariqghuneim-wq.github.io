@@ -36,6 +36,10 @@ var updateInterval;
 // variable to keep track of the key (keycode) last pressed by the user
 var activeKey;
 
+
+
+
+
 ////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////// GAME SETUP //////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
@@ -232,6 +236,7 @@ function handleAppleCollision() {
   var column = snake.tail.column;
   
   makeSnakeSquare(row, column);
+
 }
 
 function hasCollidedWithSnake() {
@@ -242,10 +247,10 @@ function hasCollidedWithSnake() {
     HINT: Each part of the snake's body is stored in the snake.body Array. The
     head and each part of the snake's body also knows its own row and column.
   */
-  for (var i = 1; i < snake.body.length; i++){ // sitll has a problem here...
-   if (snake.head.row === snake.body.row[i] && snake.head.column === snake.body.column[i]){
-    return true
-   }
+  for (var i = 1; i < snake.body.length; i++){
+    if (snake.head.row === snake.body[i].row && snake.head.column === snake.body[i].column){
+      return true;
+    }
   }
 
 
@@ -385,7 +390,12 @@ function getRandomAvailablePosition() {
       not occupied by a snakeSquare in the snake's body. If it is then set 
       spaceIsAvailable to false so that a new position is generated.
     */
-
+    for (var i = 0; i < snake.body.length; i++){
+      if (snake.body[i].row === randomPosition.row && snake.body[i].column === randomPosition.column){
+        spaceIsAvailable = false;
+      
+      }
+    }
 
 
   }
