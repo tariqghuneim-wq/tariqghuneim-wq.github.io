@@ -28,7 +28,7 @@ body {
 }
 
 #snake-head {
-  background-color: darkgreen;
+  background-color: rgb(45, 100, 0);
 }
 
 .apple {
