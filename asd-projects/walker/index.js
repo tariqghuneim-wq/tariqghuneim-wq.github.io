@@ -1,5 +1,4 @@
 /* global $, sessionStorage */
-
 $(document).ready(runProgram); // wait for the HTML / CSS elements of the page to fully load, then execute runProgram()
   
 function runProgram(){
@@ -25,9 +24,9 @@ function runProgram(){
   var walker = {
     x : 0,
     y : 0,
-    speedX : 0,
-    speedY : 0,
-  };
+    speedX : 1,
+    speedY : 1
+  }
 
 
 
@@ -52,8 +51,9 @@ function runProgram(){
   by calling this function and executing the code inside.
   */
   function newFrame() {
-    
-
+    repositionGameItem();
+    console.log(walker.x, walker.y);
+  redrawGameItem()
   }
   
   /* 
@@ -78,12 +78,10 @@ function runProgram(){
     }
 
     else if (event.which === KEY.DOWN){
-      console.log("gET lOw GeT lOw - Lil Jon and the east side boyz");
+      console.log("down pressed");
     }
 
-    else {
-      console.log("LAMEO");
-    }
+    else {}
   }
 
   ////////////////////////////////////////////////////////////////////////////////
@@ -99,4 +97,17 @@ function runProgram(){
     $(document).off();
   }
   
+
+  function repositionGameItem(){
+    walker.x += walker.speedX;
+    walker.y += walker.speedY;
+  }
+
+  function redrawGameItem(){
+    $("#walker").css("left", 50);
+    $("#walker").css("top", 50);
+  } 
+
+  
 }
+
