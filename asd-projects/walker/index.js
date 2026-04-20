@@ -24,8 +24,8 @@ function runProgram(){
   var walker = {
     x : 0,
     y : 0,
-    speedX : 1,
-    speedY : 1
+    speedX : 0,
+    speedY : 0
   }
 
 
@@ -40,7 +40,8 @@ function runProgram(){
 
   Note: You can have multiple event listeners for different types of events.
   */
-  $(document).on('keydown', handleKeyDown);                          
+  $(document).on('keydown', handleKeyDown);  
+  $(document).on('keyup', handleKeyUp);                        
 
   ////////////////////////////////////////////////////////////////////////////////
   ///////////////////////// CORE LOGIC ///////////////////////////////////////////
@@ -67,18 +68,22 @@ function runProgram(){
 
     if (event.which === KEY.LEFT) {
       console.log("left pressed");
+      walker.speedX = -5;
     }
 
     else if (event.which === KEY.UP){
       console.log("up pressed");
+      walker.speedY = -5;
     }
 
     else if (event.which === KEY.RIGHT){
       console.log("right pressed");
+      walker.speedX = 5;
     }
 
     else if (event.which === KEY.DOWN){
       console.log("down pressed");
+      walker.speedY = 5;
     }
 
     else {}
@@ -104,8 +109,8 @@ function runProgram(){
   }
 
   function redrawGameItem(){
-    $("#walker").css("left", 50);
-    $("#walker").css("top", 50);
+    $("#walker").css("left", walker.x);
+    $("#walker").css("top", walker.y);
   } 
 
   
