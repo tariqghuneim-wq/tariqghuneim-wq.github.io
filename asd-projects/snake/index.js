@@ -235,7 +235,7 @@ function endGame() {
   highScoreElement.text("High Score: " + calculateHighScore());
   scoreElement.text("Score: 0");
   score = 0;
-  alert("YOU FUCKING SUCK");
+  alert("YOU'RE A FURRY LOVING BITCH");
   // restart the game after 500 ms
   setTimeout(init, 500);
 }
