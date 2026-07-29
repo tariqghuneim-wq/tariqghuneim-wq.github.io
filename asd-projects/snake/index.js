@@ -60,7 +60,7 @@ function ageChecker() {
 
 function init() {
   alert(
-    "Hello welcome to T's Snake game. To win get 50 points, simple, IT IS NOT. This is NOT a game for kids",
+    "Hello welcome to T's Snake game. To win get 30 points, simple, IT IS NOT. This is NOT a game for kids",
   );
   ageChecker();
   // TODO 5, Part 3: initialize the snake
@@ -208,7 +208,7 @@ function handleAppleCollision() {
   // increase the score and update the score DOM element
   score++;
   scoreElement.text("Score: " + score);
-  if (score === 50) {
+  if (score === 30) {
     alert(
       "HOLY SHIT YOU BEAT DIS SHIT! WAIT.......................................................................OH HELL NAW, FUCK YOU, YOU'RE A FURRY LOVING SON OF A BITCH!!!",
     );
