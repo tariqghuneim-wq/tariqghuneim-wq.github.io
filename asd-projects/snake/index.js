@@ -46,7 +46,23 @@ $("body").on("keydown", handleKeyDown);
 // start the game
 init();
 
+function ageChecker() {
+  var ageCheck = prompt("Are you over 15, YES OR NO? (ANSWER IN LOWERCASE)");
+  if (ageCheck === "yes") {
+    alert("You may play, TRY NOT TO RAGE QUIT! ;)");
+  } else {
+    alert("GET DA FLUFF OUT");
+    throw new Error(
+      "Execution stopped intentionally cause YOU'RE A UNDERAGE BRAT",
+    );
+  }
+}
+
 function init() {
+  alert(
+    "Hello welcome to T's Snake game. To win get 50 points, simple, IT IS NOT. This is NOT a game for kids",
+  );
+  ageChecker();
   // TODO 5, Part 3: initialize the snake
   snake.body = []; // Start with an empty body
   makeSnakeSquare(10, 10); // Create the first square in the middle of the board
@@ -192,6 +208,12 @@ function handleAppleCollision() {
   // increase the score and update the score DOM element
   score++;
   scoreElement.text("Score: " + score);
+  if (score === 50) {
+    alert(
+      "HOLY SHIT YOU BEAT DIS SHIT! WAIT.......................................................................OH HELL NAW, FUCK YOU, YOU'RE A FURRY LOVING SON OF A BITCH!!!",
+    );
+    endGame();
+  }
 
   // Remove existing Apple and create a new one
   apple.element.remove();
@@ -235,7 +257,26 @@ function endGame() {
   highScoreElement.text("High Score: " + calculateHighScore());
   scoreElement.text("Score: 0");
   score = 0;
-  alert("YOU'RE A FURRY LOVING BITCH");
+  alert(
+    "I have a story for you. There once was a little DUMBASS who thought they could beat this game. They failed BADLY, Cause they are a FUCKING LOSER. This person I speak of IS YOU. ALSO YOU FUCKING SUCK ASSS",
+  );
+  // restart the game after 500 ms
+  setTimeout(init, 500);
+}
+
+function winGame() {
+  // stop update function from running
+  clearInterval(updateInterval);
+  started = false; // reset the started variable
+
+  // clear board of all elements
+  board.empty();
+
+  // update the highScoreElement to display the highScore
+  highScoreElement.text("High Score: " + calculateHighScore());
+  scoreElement.text("Score: 0");
+  score = 0;
+
   // restart the game after 500 ms
   setTimeout(init, 500);
 }
